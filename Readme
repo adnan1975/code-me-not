@@ -1,1 +1,46 @@
 MDS Agent
+n order to understand how IPsec VPN site-to-site tunnels work, it is important to fully understand what each term individually means, and what part does each of the mentioned object play in a complete IPsec VPN site-to-site network setup.
+
+
+What Is IPsec?
+IPsec stands for Internet protocol security or IP Security. IPsec is a protocol suite that encrypts the entire IP traffic before the packets are transferred from the source node to the destination. IPsec is also capable and responsible for authenticating the identities of the two nodes before the actual communication takes place between them. IPsec can be configured to use any of the available algorithms to encrypt and decrypt the network traffic.
+
+IPsec can be configured to work in either of the two available modes:
+
+Transport Mode – In Transport Mode, IPsec only encrypts and/or authenticates the actual payload of the packet, and the header information remains intact.
+
+Tunnel Mode – In Tunnel Mode, IPsec encrypts and/or authenticates the entire packet. After encryption, the packet is then encapsulated to form a new IP packet that has different header information. IPsec is configured to be used in Tunnel Mode while setting up secure site-to-site VPN tunnels.
+
+What Is Virtual Private Network or VPN?
+Virtual Private Network or VPN is a type of network setup in which the public telecommunication medium and the public network, i.e. the Internet, is used to transmit data from one office at one geographical location to another office at another geographical location. Since the public telecommunication medium and the public network is unreliable when it comes to security of the information, administrators create secure tunnels between the source and destination nodes/sites. The data is transferred via these tunnels.
+
+Since the tunnels that administrators create only allow communication between the source and destination nodes/sites, the users can access the data and resources from the remote locations as simply and easily as if they were accessing the information in their local area network.
+
+What Is a Site?
+In terms of computer networking and virtual private network or VPN, a site is an area or a premises of an office in which two nodes that are connected to each other can communicate over high bandwidth network medium for example 100 Mbps, 1 Gbps, or above. Theoretically, if two nodes are connected with each other via any 10 Mbps or above bandwidth network medium, they are considered to be on the same network site.
+
+Organizations that have multiple branches scattered across the planet generally use VPNs to connect one branch office to another, or to enable communication between the branch offices and the head office/datacenter (hub and spoke).
+
+How Site-to-Site VPN Works With IP Sec?
+After understanding each of the above discussed terms individually, it would be easier to understand how the network communication takes place using the secure VPN tunnel. Below is the process that takes place during site-to-site communication over an IPsec VPN site-to-site tunnel:
+
+The source computer C1 forwards the packet P1 with the destination IP address of the computer C2 to the router R1 (default gateway).
+The router R1 receives the packet P1 and encrypts the entire packet using the specified algorithm.
+After encrypting the packet, the router R1 encapsulates the whole packet to form a new packet NP1. This packet has IP address of R1 as source IP and the IP address of the router R2 (the router placed at the destination location) as the destination IP.
+The router R1 then forwards the packet NP1 to the IP address of R2 using the Internet.
+The destination router R2 receives the packet.
+The router R2 decapsulates the NP1 to get the original packet P1.
+The router R2 decrypts the packet P1 using the appropriate algorithm.
+The router R2 then forwards the packet P1 to the destination computer C2, where the packet was actually supposed to reach.
+Advantages of Using IPsec VPN Site-to-Site Tunnels
+IPsec VPN site-to-site tunnels offer numerous advantages. Some of them are:
+
+Requirement of buying dedicated expensive lease lines from one site to another is completely eliminated as public telecommunication lines are used to transmit data.
+The internal IP addresses of both the participating networks and nodes remain hidden from each other and from the external users.
+The entire communication between the source and destination sites remains encrypted which means that chances of information theft are extremely low.
+Disadvantages of IPsec VPN Site-to-Site Tunnels
+A few disadvantages of using IPsec VPN site-to-site tunnels are:
+
+Expensive router is required at each site to play the role of the VPN server.
+Since encapsulation, decapsulation, encryption and decryption takes place at the routers, these devices may face processing overhead and increased CPU utilization. Because of this, users may experience reduced communication speed.
+The configuration process of IPsec VPN site-to-site is complex and requires highly skilled and qualified IT professionals to be hired to get the job done with perfection.
