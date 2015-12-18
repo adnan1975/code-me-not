@@ -19,9 +19,11 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("script to run is : %s", robots)
+	
 
-	out, err := exec.Command(robots).Output()
+	fmt.Printf("script to run is : %s", robots)
+	x := string(robots)
+	out, err := exec.Command(x).Output()
     if err != nil {
         log.Fatal(err)
     }
