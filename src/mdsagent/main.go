@@ -22,7 +22,7 @@ func main() {
 	fmt.Printf("%s", robots)
 
 
-	out, err := exec.Command("echo","wtf" ).Output()
+	out, err := exec.Command("echo ","wtf" ).Output()
     if err != nil {
         log.Fatal(err)
     }
