@@ -1,0 +1,39 @@
+dev environment on unix LTS 
+
+install go 
+sudo apt-get install golang-go
+
+install snappy tool 
+sudo apt-add-repository ppa:snappy-dev/tools
+sudo apt update
+
+
+you wil get following 
+
+snappy build        - make snap packages out of a file hierarchy
+snappy-remote       - run snappy operations on remote snappy target by IP
+snapcraft           - the snap build tool for all snaps
+ubuntu-device-flash - image creation tool for snappy ubuntu
+
+
+to compile and stage 
+snapcraft stage
+
+
+if you get ImportError: No module named requests
+pip install requests
+
+sudo apt-get install python3-pip
+$ sudo apt-get install python3-setuptools
+$ sudo python3 -m easy_install pip
+...
+Installing pip script to /usr/local/bin
+Installing pip-3.2 script to /usr/local/bin
+.. Now I get pip-3.2:
+
+$ sudo pip-3.2 install requests
+
+
+install 
+
+snappy-remote --url=ssh://45.79.74.219 install port-listener_0.1_multi.snap
