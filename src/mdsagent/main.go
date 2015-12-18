@@ -7,10 +7,13 @@ import (
 	"net/http"
 	"os/exec"
 	"crypto/tls"
+	"time"
 )
 
 func main() {
-	
+t := time.NewTicker(15 * time.Second)
+// or just use the usual for { select {} } idiom of receiving from a channel
+for now := range t.C {
 
 	tr := &http.Transport{
         TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
@@ -35,6 +38,16 @@ func main() {
         log.Fatal(err)
     }
     fmt.Printf("output is %s\n", out)
+    fmt.Printf("sleeping the routine at %s\n", now)
+
+
+}
+
+
+   
+
+
+
 
     //cmd := exec.Command("/bin/sh", mongoToCsvSH)
 
